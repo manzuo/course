@@ -70,5 +70,8 @@ public class ShiroConfig {
         securityManager.setSessionManager(sessionManager);
         return securityManager;
     }
-
+    @Bean
+    public RedisSessionDAO redisSessionDAO(){
+        return  new RedisSessionDAO();
+    }
 }

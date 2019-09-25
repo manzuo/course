@@ -38,6 +38,8 @@ public class RealmConfig extends AuthorizingRealm {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private RedisSessionDAO  redisSessionDAO;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {

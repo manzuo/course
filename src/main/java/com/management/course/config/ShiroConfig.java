@@ -1,5 +1,6 @@
 package com.management.course.config;
 
+import com.management.course.dao.RedisSessionDAO;
 import org.apache.shiro.mgt.SessionsSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.mgt.SecurityManager;
@@ -69,4 +70,5 @@ public class ShiroConfig {
         securityManager.setSessionManager(sessionManager);
         return securityManager;
     }
+
 }

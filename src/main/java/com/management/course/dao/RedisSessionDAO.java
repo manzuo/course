@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 public class RedisSessionDAO extends AbstractSessionDAO {
     private long expireTime = 120000;
 
-    @Autowired
     private RedisTemplate redisTemplate;
 
     public RedisSessionDAO() {

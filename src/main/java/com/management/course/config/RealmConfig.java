@@ -38,18 +38,27 @@ public class RealmConfig extends AuthorizingRealm {
     @Autowired
     private RoleService roleService;
 
-
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //获取用户名
         String workId = (String) principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        Set<String> roles = new HashSet<>();
-        List<UserRole> userRoles = userRoleService.findByWorkId(workId);
-        for (UserRole u :userRoles){
-            roles.add(roleService.findByRoleId(u.getRoleId()).getName());
+
+        // 暂时没有角色的要求，不设
+//        Set<String> roles = new HashSet<>();
+//        List<UserRole> userRoles = userRoleService.findByWorkId(workId);
+//        for (UserRole u :userRoles){
+//            roles.add(roleService.findByRoleId(u.getRoleId()).getName());
+//        }
+
+        Set<String> permissions = new HashSet<>();
+        User user = userService.findByWorkId(workId);
+        String[] permissionArray = user.getAuthority().split("@");
+        for (String permission : permissionArray) {
+            permissions.add(permission);
         }
-        authorizationInfo.setRoles(roles);
+
+        authorizationInfo.setStringPermissions(permissions);
 
         return authorizationInfo;
     }

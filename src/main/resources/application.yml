@@ -37,7 +37,10 @@ spring:
     redis:
         host: 127.0.0.1
         port: 6379
+        password: password
 
+shiro:
+    jessionid:jessionId
 mybatis-plus:
 #    将下划线映射到驼峰大小写
     configuration:

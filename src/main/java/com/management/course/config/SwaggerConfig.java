@@ -24,14 +24,14 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()
                 //swagger要扫描的包路径
-                .apis(RequestHandlerSelectors.basePackage("com.management.course"))
+                .apis(RequestHandlerSelectors.basePackage("com.management.course.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("课程管理")
-                .description("课程管理api接口文档")
+                .title("系统管理")
+                .description("系统管理api接口文档")
                 .version("1.0")
                 .build();
     }

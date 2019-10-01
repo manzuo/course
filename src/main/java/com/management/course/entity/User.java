@@ -74,9 +74,6 @@ public class User extends BaseEntity{
     @ApiModelProperty(value = "第二联系电话")
     private String extraPhone;
 
-    @ApiModelProperty(value = "课程代码")
-    private String courseCode;
-
     @ApiModelProperty(value = "办公地点")
     private String officeLocation;
 
